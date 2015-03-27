@@ -1,6 +1,5 @@
 # Kontena (コンテナ)
 
-[![CI Status](http://img.shields.io/travis/markvaldy/Kontena.svg?style=flat)](https://travis-ci.org/markvaldy/Kontena)
 [![Version](https://img.shields.io/cocoapods/v/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
 [![License](https://img.shields.io/cocoapods/l/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
 [![Platform](https://img.shields.io/cocoapods/p/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
