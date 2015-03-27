@@ -12,7 +12,7 @@ A simple Swift implementation of Service Locator / IOC container with limited DI
 ## Additional notes
 
 - If you want to bind Swift protocol you must add ```@objc``` annotation.
-- Your bound object must inherit from NSObject to let the container automatically resolve dependencies.  
+- Your bound object must inherit from ```NSObject``` to let the container automatically resolve dependencies.  
 - Swift 1.2 is required to use this library.
 
 ## Usage
