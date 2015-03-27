@@ -8,6 +8,8 @@
 
 A simple Swift implementation of Service Locator / IOC container with limited DI functionality. Works well with Swift and Objective C classes.
 
+Please check Demo project for a very basic example on how to use Kontena.
+
 ## Additional notes
 
 - If you want to bind Swift protocol you must add ```@objc``` annotation.
