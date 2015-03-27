@@ -1,6 +1,7 @@
 import Foundation
 import Quick
 import Nimble
+import TypeHelper
 
 class ContainerSpec: QuickSpec
 {

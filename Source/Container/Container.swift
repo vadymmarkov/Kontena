@@ -1,4 +1,5 @@
 import Foundation
+import TypeHelper
 
 public protocol Binder
 {
