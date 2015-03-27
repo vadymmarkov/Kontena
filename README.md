@@ -1,16 +1,18 @@
-# Kontena
+# Kontena (コンテナ)
 
 [![CI Status](http://img.shields.io/travis/markvaldy/Kontena.svg?style=flat)](https://travis-ci.org/markvaldy/Kontena)
 [![Version](https://img.shields.io/cocoapods/v/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
 [![License](https://img.shields.io/cocoapods/l/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
 [![Platform](https://img.shields.io/cocoapods/p/Kontena.svg?style=flat)](http://cocoadocs.org/docsets/Kontena)
 
+## IOC container in Swift
+
 A simple Swift implementation of Service Locator / IOC container with limited DI functionality. Works well with Swift and Objective C classes.
 
 ## Additional notes
 
 - If you want to bind Swift protocol you must add ```@objc``` annotation.
-- Your bound object must inherit from NSObject to let the container to automatically resolve dependencies.  
+- Your bound object must inherit from NSObject to let the container automatically resolve dependencies.  
 - Swift 1.2 is required to use this library.
 
 ## Usage
@@ -36,7 +38,7 @@ container1.mergeWithContainer(container2) // all bound objects from container2 a
 container.clear()
 ```
 
-### Let the container to automatically resolve dependencies of bound objects
+### Let the container automatically resolve dependencies of bound objects
 
 ```swift
 container.resolveDependencies = true
@@ -77,8 +79,8 @@ container.bindFactory(factory).asSingleton() // bind as singleton to the type of
 
 ```swift
 // return resolved object or nil
-let resolvedByType = container.resolveType(SomeClass.self)
-let resolvedByKey = container.resolveKey(key)
+var resolvedByType = container.resolveType(SomeClass.self)
+var resolvedByKey = container.resolveKey(key)
 ```
 
 ### Using of custom operators
