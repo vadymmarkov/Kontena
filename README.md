@@ -85,9 +85,11 @@ container.bindFactory(factory).asSingleton()
 ```
 
 ### Resolve the object
+Resolved object or ```nil``` is returned. If the factory was bound then object will be initialized lazily (for factories with the ```singleton``` scope - only at the first resolve call, for the ```prototype``` scope - at every resolve call).
+
+If ```resolveDependencies``` was set to ```true``` then container will try to automatically resolve dependencies of the requested object (if they are already registered in the container and the requested object is a subclass of ```NSObject```).
 
 ```swift
-// return resolved object or nil
 var resolvedByType = container.resolveType(SomeClass.self)
 var resolvedByKey = container.resolveKey(key)
 ```
