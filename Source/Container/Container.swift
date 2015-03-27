@@ -72,7 +72,7 @@ public class Container: Binder, Resolver
         bindFactory({
             () -> T in
             return instance
-        }, toKey:key).asSingleton()
+            }, toKey:key).asSingleton()
     }
 
     public func bindFactory<T: AnyObject>(factory: () -> T) -> Definition
@@ -93,7 +93,7 @@ public class Container: Binder, Resolver
         if resolveDependencies {
             definitionFactory = {
                 () -> T in
-                return self.resolveInstance(factory(), withDependency: nil)
+                return self.bindFromMirror(reflect(factory()), toInstance: factory(), withDependency: nil)
             }
         }
         let definition = Definition(factory: definitionFactory)
@@ -122,16 +122,20 @@ public class Container: Binder, Resolver
 
     // MARK: - Auto resolve
 
-    func resolveInstance<T: AnyObject>(instance: T, withDependency dependency: (key: String, instance: AnyObject)?) -> T
+    func bindFromMirror<T: AnyObject>(mirror: MirrorType, toInstance instance: T, withDependency dependency: (key: String, instance: AnyObject)?) -> T
     {
         if instance is NSObject {
-            let mirror = reflect(instance)
             let key = nonOptionalTypeName(T.self)
 
             for var i = 0; i < mirror.count; i++ {
                 let (propertyName, childMirror) = mirror[i]
 
-                if childMirror.value as Any? == nil || propertyName == "super" {
+                if childMirror.value as Any? == nil {
+                    continue
+                }
+
+                if propertyName == "super" {
+                    bindFromMirror(childMirror, toInstance: instance, withDependency: dependency)
                     continue
                 }
 
@@ -146,7 +150,7 @@ public class Container: Binder, Resolver
 
                 if childValue == nil {
                     if let childObject: AnyObject = resolveKey(childKey) {
-                        childValue = resolveInstance(childObject, withDependency: (key, instance))
+                        childValue = bindFromMirror(reflect(childObject), toInstance: childObject, withDependency: (key, instance))
                     }
                 }
 

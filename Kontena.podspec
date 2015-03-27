@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Kontena"
-  s.version          = "0.1.1"
+  s.version          = "0.2.0"
   s.summary          = "A simple Swift implementation of Service Locator / IOC container"
   s.homepage         = "https://github.com/markvaldy/Kontena"
   s.license          = {

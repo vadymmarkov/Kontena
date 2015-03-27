@@ -1,0 +1,13 @@
+PODS:
+  - Kontena (0.1.1):
+    - TypeHelper (~> 0.1.2)
+  - TypeHelper (0.1.2)
+
+DEPENDENCIES:
+  - Kontena (~> 0.1.1)
+
+SPEC CHECKSUMS:
+  Kontena: 18c1f58dbf24ca0c633898b1c6dced95c5492d32
+  TypeHelper: cbf5fb7b2f4f38773533b097ffa596e77296d493
+
+COCOAPODS: 0.36.1

@@ -505,7 +505,7 @@ class ContainerSpec: QuickSpec
                         }
 
                         it("auto resolves correctly") {
-                            var some = container.resolveInstance(instance, withDependency: nil)
+                            var some = container.bindFromMirror(reflect(instance), toInstance: instance, withDependency: nil)
                             expect(some).notTo(beNil())
                             expect(some).to(beIdenticalTo(instance))
                             expect(some.name).to(equal("Some"))
@@ -531,7 +531,7 @@ class ContainerSpec: QuickSpec
                         }
 
                         it("auto resolves correctly") {
-                            var some = container.resolveInstance(instance, withDependency: nil)
+                            var some = container.bindFromMirror(reflect(instance), toInstance: instance, withDependency: nil)
                             expect(some).notTo(beNil())
                             expect(some).to(beIdenticalTo(instance))
                             expect(some.name).to(equal("Some"))
@@ -561,7 +561,7 @@ class ContainerSpec: QuickSpec
                         }
 
                         it("auto resolves correctly") {
-                            var some = container.resolveInstance(instance, withDependency: nil)
+                            var some = container.bindFromMirror(reflect(instance), toInstance: instance, withDependency: nil)
                             expect(some).notTo(beNil())
                             expect(some).to(beIdenticalTo(instance))
 
