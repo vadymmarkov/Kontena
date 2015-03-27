@@ -29,7 +29,9 @@ let sharedContainer = Container.sharedInstance // as singleton
 ### Merge two containers
 
 ```swift
-container1.mergeWithContainer(container2) // all bound objects from container2 are merged and added to container1
+// all bound objects from container2
+// are merged and added to container1
+container1.mergeWithContainer(container2)
 ```
 
 ### Clear the container
@@ -53,10 +55,14 @@ class SomeClass: SomeBaseClass, SomeProtocol {}
 
 var instance = SomeClass()
 
-container.bind(instance) // bind as singleton to the type of the instance
-container.bind(instance, toType: SomeBaseClass.self) // bind as singleton to the superclass type
-container.bind(instance, toType: SomeProtocol.self) // bind as singleton to the protocol
-container.bind(instance, toKey: "some") // bind as singleton to the key
+// as singleton to the type of the instance
+container.bind(instance)
+// as singleton to the superclass type
+container.bind(instance, toType: SomeBaseClass.self)
+// as singleton to the protocol
+container.bind(instance, toType: SomeProtocol.self)
+// as singleton to the key
+container.bind(instance, toKey: "some")
 
 // factory = closure where the object is initialized
 let factory = {
@@ -66,13 +72,17 @@ let factory = {
   return some
 }
 
-container.bindFactory(factory) // bind to the type of the instance
-container.bindFactory(factory, toType: SomeBaseClass.self) // bind to the superclass type
-container.bindFactory(factory, toType: SomeProtocol.self) // bind to the protocol
-container.bindFactory(factory, toKey: "some") // bind to the key
+// to the type of the instance
+container.bindFactory(factory)
+// to the type of the instance
+container.bindFactory(factory, toType: SomeBaseClass.self)
+// to the protocol
+container.bindFactory(factory, toType: SomeProtocol.self)
+// to the key
+container.bindFactory(factory, toKey: "some")
 
-// You can bind factory as singleton as well
-container.bindFactory(factory).asSingleton() // bind as singleton to the type of the instance
+// you can bind factory as singleton as well
+container.bindFactory(factory).asSingleton()
 ```
 
 ### Resolve the object
